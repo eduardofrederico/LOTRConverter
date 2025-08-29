@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State var showExchangeInfo = false
+    @State var leftAmount = ""
+    @State var rightAmount = ""
     
     var body: some View {
         ZStack {
@@ -46,9 +48,12 @@ struct ContentView: View {
                                 .font(.headline)
                                 .foregroundStyle(.white)
                         }
+                        .padding(.bottom, -5)
                         
                         // Text Field
-                        Text("Text field")
+                        TextField("Amount", text: $leftAmount)
+                            .textFieldStyle(.roundedBorder)
+                            .multilineTextAlignment(.leading)
                     }
                     
                     // Equal sign
@@ -72,11 +77,17 @@ struct ContentView: View {
                                 .scaledToFit()
                                 .frame(height: 33)
                         }
+                        .padding(.bottom, -5)
                         
                         // Text Field
-                        Text("Text field")
+                        TextField("Amount", text: $rightAmount)
+                            .textFieldStyle(.roundedBorder)
+                            .multilineTextAlignment(.trailing)
                     }
                 }
+                .padding()
+                .background(.black.opacity(0.5))
+                .clipShape(.capsule)
                 
                 Spacer()
                 
